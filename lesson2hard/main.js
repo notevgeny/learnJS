@@ -8,6 +8,11 @@ let num = 266219;
 let number = eval(num.toString().split('').join('*'));
 console.log(number);
 
+//альтернативный и более прямой способ
+let numstr = num.toString().split('');
+let number1 = numstr[0]*numstr[1]*numstr[2]*numstr[3]*numstr[4]*numstr[5];
+console.log(number1);
+
 //3) Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
 let summary = number ** 3;
 console.log('summary: ', summary);
