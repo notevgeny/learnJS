@@ -18,6 +18,6 @@ let summary = number ** 3;
 console.log('summary: ', summary);
 
 //4) Вывести на экран первые 2 цифры полученного числа
-console.log(parseInt(summary.toString().slice(0, 2)));
+console.log(+(summary.toString().slice(0, 2)));
 
 
