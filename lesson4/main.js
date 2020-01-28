@@ -81,18 +81,24 @@ console.log('Бюджет на день: ' + budgetDay);
 Если отрицательное значение то вывести “Что то пошло не так”
 Учесть варианты 0, 600 и 1200*/
 
-if (budgetDay > 1200) {
-  console.log('У вас высокий уровень дохода')
-} 
-else if (1200 > budgetDay && budgetDay > 600) {
-  console.log('У вас средний уровень дохода')
-}
-else if (600 > budgetDay) {
-  console.log('К сожалению у вас уровень дохода ниже среднего')
-} 
-else if (0 > budgetDay) {
- console.log('Что то пошло не так')
-};
+let getStatusIncome = function () {
+
+  if (budgetDay > 1200) {
+    return('У вас высокий уровень дохода');
+  } 
+  else if (1200 > budgetDay && budgetDay > 600) {
+    return('У вас средний уровень дохода');
+  }
+  else if (600 > budgetDay) {
+    return('К сожалению у вас уровень дохода ниже среднего');
+  } 
+  else if (0 > budgetDay) {
+   return('Что то пошло не так');
+  };
+  
+  }
+  
+  console.log(getStatusIncome());
 
 
 
