@@ -32,7 +32,7 @@ let getPrimeNumbers = function () {
     for (let j = 2; j < i; j++) {
       if (i % j == 0) continue doAgain;
     }
-    console.log('Простое число: ' + i + '. Его множители: ' + 1 + ' и ' + i);
+    console.log('Простое число: ' + i + '. Его делители: ' + 1 + ' и ' + i);
   }
 };
 getPrimeNumbers();
