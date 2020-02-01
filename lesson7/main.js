@@ -36,20 +36,19 @@ let appData = {
     let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Домино, БараБан');
     appData.addExpenses = addExpenses.toLowerCase().split(',');
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
-    let question1,
-        question2;
+    //let question1,
+        //question2;
         for (let i = 0; i < 2; i++) {
-          question1 = prompt('Введите обязательную статью расходов');
-          question2 = +prompt('Во сколько это обойдется?');
-          console.log('question2: ', question2);
-          appData.expenses[question1] = question2;
-          console.log('appData.expense: ', appData);
+          //question1 = prompt('Введите обязательную статью расходов');
+          //question2 = +prompt('Во сколько это обойдется?');
+          appData.expenses[prompt('Введите обязательную статью расходов')] = +prompt('Во сколько это обойдется?');
+          //console.log('appData.expense: ', appData);
         }
   },
   getExpensesMonth: function() {
     let sum = 0;
     for (key in appData.expenses)
-      sum += +appData.expenses[key];
+      sum += appData.expenses[key];
       return sum;
   },
 
@@ -92,7 +91,7 @@ let appData = {
 };
 console.log('Цель заработать ' + appData.mission + ' рублей/долларов/гривен/юани');
 start();
-console.log('Ваш доход: ', money);
+//console.log('Ваш доход: ', money);
 appData.asking();
 appData.getExpensesMonth();
 let expensesAmount = appData.getExpensesMonth();
