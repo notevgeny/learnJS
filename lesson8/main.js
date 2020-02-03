@@ -15,12 +15,6 @@ let isNumber = function(n) {
 
 start();
 
-/*let income = 'Стрижка овец', 
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Домино, БараБан'), 
-    deposit = confirm('Есть ли у вас депозит в банке?'), 
-    mission = 100000, 
-    period = 12;*/
-
 let appData = {
   income: {},
   addIncome: [],
@@ -84,7 +78,6 @@ let appData = {
           }
           while (isNaN(cashExpenses) || cashExpenses === '' || cashExpenses === null);
           appData.expenses[itemExpenses] = +cashExpenses;
-          //console.log('appData.expense: ', appData);
         }
   },
   getExpensesMonth: function() {
