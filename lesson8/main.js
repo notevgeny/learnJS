@@ -65,8 +65,6 @@ let appData = {
 
     }
     addSummary = arr.join(', ');
-
-    
     appData.addExpenses = addSummary;
     console.log('appData.addExpenses:', appData.addExpenses);
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
