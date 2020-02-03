@@ -2,7 +2,6 @@
 
 let money,
 
-//Переписать функцию start циклом do while
     start = function() {
       do {
         money = prompt('Ваш ежемесячный доход?');
