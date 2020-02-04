@@ -65,6 +65,6 @@ console.log(getZero(dateNow2.getHours()) + ':' + getZero(dateNow2.getMinutes()) 
 
 let timerId = setInterval(function showDate() {
  let dateNow3 = new Date();
- timerId = console.log('Текущие дата и время: ' + getZero(dateNow3.getDate()) + '.' + getZero(dateNow3.getMonth() + 1) + '.' + dateNow3.getFullYear() + ' ' + getZero(dateNow3.getHours()) + ':' + getZero(dateNow3.getMinutes()) + ':' + getZero(dateNow3.getSeconds()) );;
+ timerId = console.log('Текущие дата и время: ' + getZero(dateNow3.getDate()) + '.' + getZero(dateNow3.getMonth() + 1) + '.' + dateNow3.getFullYear() + ' ' + getZero(dateNow3.getHours()) + ':' + getZero(dateNow3.getMinutes()) + ':' + getZero(dateNow3.getSeconds()) )
 }, 1000);
 
