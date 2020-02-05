@@ -41,7 +41,6 @@ collectChapter2[0].insertBefore(elemChapter2[2], elemChapter2[10]);
 
 let collectChapter5 = setBookOrder[5].querySelectorAll('ul'),
     elemChapter5 = setBookOrder[5].querySelectorAll('li');
-    console.log('elemChapter5: ', elemChapter5);
    
     collectChapter5[0].insertBefore(elemChapter5[9], elemChapter5[2]);
     collectChapter5[0].insertBefore(elemChapter5[3], elemChapter5[2]);
