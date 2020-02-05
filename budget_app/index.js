@@ -31,42 +31,42 @@ console.log('getInputs: ', getInputs);
 
 // Каждый элемент в правой части программы через класс, которые имеют в имени класса "-value", начиная с class="budget_day-value" и заканчивая class="target_month-value">
 
-let getValueClass1 = document.getElementsByClassName('budget_day-value');
-console.log('getValueClass1: ', getValueClass1);
-let getValueClass2 = document.getElementsByClassName('expenses_month-value')
-console.log('getValueClass2: ', getValueClass2);
-let getValueClass3 = document.getElementsByClassName('additional_income-value')
-console.log('getValueClass3: ', getValueClass3);
-let getValueClass4 = document.getElementsByClassName('additional_expenses-value')
-console.log('getValueClass4: ', getValueClass4);
-let getValueClass5 = document.getElementsByClassName('income_period-value')
-console.log('getValueClass5: ', getValueClass5);
-let getValueClass6 = document.getElementsByClassName('target_month-value')
-console.log('getValueClass6: ', getValueClass6);
+let getBudgetDayValue = document.querySelector('.budget_day-value');
+console.log('getBudgetDayValue: ', getBudgetDayValue);
+let getExpensesMonthValue = document.querySelector('.expenses_month-value')
+console.log('getExpensesMonthValue: ', getExpensesMonthValue);
+let getAddIncomeValue = document.querySelector('.additional_income-value')
+console.log('getAddIncomeValue: ', getAddIncomeValue);
+let getAdditionalExpensesValue = document.querySelector('.additional_expenses-value')
+console.log('getAdditionalExpensesValue: ', getAdditionalExpensesValue);
+let getIncomePeriodValue = document.querySelector('.income_period-value')
+console.log('getIncomePeriodValue: ', getIncomePeriodValue);
+let getTargetMonthValue = document.querySelector('.target_month-value')
+console.log('getTargetMonthValue: ', getTargetMonthValue);
 
 // Оставшиеся поля через querySelector каждый в отдельную переменную: поля ввода (input) с левой стороны и не забудьте про range.
-let getValueInput1 = document.querySelector('input.salary-amount');
-console.log('getValueInput1: ', getValueInput1);
-let getValueInput2 = document.querySelector('input.income-title');
-console.log('getValueInput2: ', getValueInput2);
-let getValueInput3 = document.querySelector('input.income-amount');
-console.log('getValueInput3: ', getValueInput3);
-let getValueInput4 = document.querySelector('input.additional_income-item');
-console.log('getValueInput4: ', getValueInput4);
-let getValueInput5 = document.querySelector('input.expenses-title');
-console.log('getValueInput5: ', getValueInput5);
-let getValueInput6 = document.querySelector('input.expenses-amount');
-console.log('getValueInput6: ', getValueInput6);
-let getValueInput7 = document.querySelector('input.additional_expenses-item ');
-console.log('getValueInput7: ', getValueInput7);
-let getValueInput8 = document.querySelector('input.deposit-amount');
-console.log('getValueInput8: ', getValueInput8);
-let getValueInput9 = document.querySelector('input.deposit-percent');
-console.log('getValueInput9: ', getValueInput9);
-let getValueInput10 = document.querySelector('input.target-amount');
-console.log('getValueInput10: ', getValueInput10);
-let getValueInput11 = document.querySelector('input.period-select');
-console.log('getValueInput11: ', getValueInput11);
+let getSalaryAmount = document.querySelector('input.salary-amount');
+console.log('getSalaryAmount: ', getSalaryAmount);
+let getIncomeTitle = document.querySelector('input.income-title');
+console.log('getIncomeTitle: ', getIncomeTitle);
+let getIncomeAmount = document.querySelector('input.income-amount');
+console.log('getIncomeAmount: ', getIncomeAmount);
+let getAddIncomeItem = document.querySelector('input.additional_income-item');
+console.log('getAddIncomeItem: ', getAddIncomeItem);
+let getExpensesTitle = document.querySelector('input.expenses-title');
+console.log('getExpensesTitle: ', getExpensesTitle);
+let getExpensesAmount = document.querySelector('input.expenses-amount');
+console.log('getExpensesAmount: ', getExpensesAmount);
+let getAddExpensesItem = document.querySelector('input.additional_expenses-item ');
+console.log('getAddExpensesItem: ', getAddExpensesItem);
+let getDepositAmount = document.querySelector('input.deposit-amount');
+console.log('getDepositAmount: ', getDepositAmount);
+let getDepositPercent = document.querySelector('input.deposit-percent');
+console.log('getDepositPercent: ', getDepositPercent);
+let getTargetAmount = document.querySelector('input.target-amount');
+console.log('getTargetAmount: ', getTargetAmount);
+let getPeriodSelect = document.querySelector('input.period-select');
+console.log('getPeriodSelect: ', getPeriodSelect);
 
 
 
