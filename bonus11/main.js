@@ -1,9 +1,7 @@
 'use strict'
 let button = document.getElementById('change');
-console.log('button: ', button);
 let wrapper = document.querySelector('.wrapper');
 let header = document.getElementById('color');
-console.log('header: ', header);
 
 function getRandomColor() {
  let letters = '0123456789ABCDEF';
