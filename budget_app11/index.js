@@ -33,17 +33,29 @@ let additionalExpensesItem = document.querySelector('.additional_expenses-item')
 // Оставшиеся поля через querySelector каждый в отдельную переменную: поля ввода (input) с левой стороны и не забудьте про range.
 let salaryAmount = document.querySelector('.salary-amount');
 let incomeTitle = document.querySelector('.income-title');
-// let incomeAmount = document.querySelector('.income-amount');
+let inputIncomeTitle = document.querySelector('input.income-title');
+let inputExpensesTitle = document.querySelector('input.expenses-title');
+let incomeAmount = document.querySelector('.income-amount');
 let addIncomeItem = document.querySelectorAll('.additional_income-item');
 let expensesTitle = document.querySelector('.expenses-title');
 let expensesItems = document.querySelectorAll('.expenses-items');
+let expensesAmount = document.querySelector('.expenses-amount');
+
 let addExpensesItem = document.querySelector('.additional_expenses-item');
 let depositAmount = document.querySelector('.deposit-amount');
 let depositPercent = document.querySelector('.deposit-percent');
 let targetAmount = document.querySelector('.target-amount');
 let periodSelect = document.querySelector('.period-select');
 let incomeItems = document.querySelectorAll('.income-items');
-let periodAmount = document.querySelector('.period-amount')
+
+let periodAmount = document.querySelector('.period-amount');
+// let getPlaceholder = document.querySelector('input').getAttribute('placeholder');
+let getNumPlaceholder = [...document.querySelectorAll('[placeholder = "Сумма"]')];
+let getSymbolPlaceholder = [...document.querySelectorAll('[placeholder = "Наименование"]')];
+
+
+
+
 
 // document.addEventListener("DOMContentLoaded", function(){
 //  getButton.disabled = true;
@@ -103,17 +115,40 @@ let appData = {
   addExpensesBlock: function() {
 
    let cloneExpensesItem = expensesItems[0].cloneNode(true);
+   //получаем объекты и обнуляем у них значения
+   let expensesVal1 = cloneExpensesItem.querySelector('.expenses-title').value = '';
+   let expensesVal2 = cloneExpensesItem.querySelector('.expenses-amount').value = '';
+   //снова получаем объект, который добавили
+   let expensesNumInput = cloneExpensesItem.querySelector('.expenses-amount');
+   // навешиваем обработчик проверки на число
+   expensesNumInput.addEventListener('input', appData.checkInputNum);
+
+   let expensesSymbolInput = cloneExpensesItem.querySelector('.expenses-title');
+   console.log('expensesSymbolInput: ', expensesSymbolInput);
+   expensesSymbolInput.addEventListener('input', appData.checkInputSymbol);
+
+
    expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
    expensesItems = document.querySelectorAll('.expenses-items');
    if (expensesItems.length === 3) {
     expensesPlus.style.display = 'none';
    }
   },
-  addIncomeBlock: function() {
 
+  addIncomeBlock: function() {
    let cloneIncomeItem = incomeItems[0].cloneNode(true);
+   let incomeVal1 = cloneIncomeItem.querySelector('.income-title').value = '';
+   let incomeVal2 = cloneIncomeItem.querySelector('.income-amount').value = '';
+
+   let incomeNumInput = cloneIncomeItem.querySelector('.income-amount');
+   incomeNumInput.addEventListener('input', appData.checkInputNum);
+
+   let incomeSymbolInput = cloneIncomeItem.querySelector('.income-title');
+   incomeSymbolInput.addEventListener('input', appData.checkInputSymbol);
+
    incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
    incomeItems = document.querySelectorAll('.income-items');
+
    if (incomeItems.length === 3) {
     incomePlus.style.display = 'none';
    }
@@ -153,6 +188,22 @@ let appData = {
      appData.incomeMonth += +appData.income[key];
     }
    });
+  },
+
+  // проверка на число в инпуте
+  checkInputNum: function(){
+    if (getNumPlaceholder) {
+      this.value = this.value.replace(/[\D]/g, '');
+    }
+    else return;
+  },
+
+  // проверка на русские символы и знаки препинания
+  checkInputSymbol: function(){
+    if (getSymbolPlaceholder) {
+      this.value = this.value.replace(/[^\W]/ig, '');
+    }
+    else return;
   },
 
 
@@ -228,9 +279,6 @@ let appData = {
   }
 };
 
-let ready = function(){
- getButton.disabled = true;
-};
 
 
 start.addEventListener('click', appData.start);
@@ -239,6 +287,21 @@ expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('input', appData.changePeriodBlock);
 salaryAmount.addEventListener('input', appData.enableBtn);
+
+salaryAmount.addEventListener('input', appData.checkInputNum);
+targetAmount.addEventListener('input', appData.checkInputNum);
+incomeAmount.addEventListener('input', appData.checkInputNum);
+expensesAmount.addEventListener('input', appData.checkInputNum);
+
+addIncomeItem[0].addEventListener('input', appData.checkInputSymbol);
+addIncomeItem[1].addEventListener('input', appData.checkInputSymbol);
+
+
+inputIncomeTitle.addEventListener('input', appData.checkInputSymbol);
+
+inputExpensesTitle.addEventListener('input', appData.checkInputSymbol);
+
+
 
 
   //Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
