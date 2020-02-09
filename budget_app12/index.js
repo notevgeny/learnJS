@@ -276,7 +276,6 @@ let appData = {
     resetButton.style.display = 'block';
     resetButton.addEventListener('click', resetAll);
 
-
   }
 
 };
