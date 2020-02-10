@@ -76,11 +76,11 @@ let appData = {
 
    this.budget = +salaryAmount.value;
    this.getExpenses();
-   this.getIncome();
+   this.getIncome.call(appData);
    this.getExpensesMonth();
    this.getBudget();
-   this.getAddExpenses();
-   this.getAddIncome();
+   this.getAddExpenses.call(appData);
+   this.getAddIncome.call(appData);
 
    this.showResult();
 
@@ -103,17 +103,13 @@ let appData = {
 
    let cloneExpensesItem = expensesItems[0].cloneNode(true);
    //получаем объекты и обнуляем у них значения
-   let expensesVal1 = cloneExpensesItem.querySelector('.expenses-title').value = '';
-   let expensesVal2 = cloneExpensesItem.querySelector('.expenses-amount').value = '';
+   let expensesVal1 = cloneExpensesItem.querySelector('.expenses-title');
+   let expensesVal2 = cloneExpensesItem.querySelector('.expenses-amount');
+   expensesVal1.value = '';
+   expensesVal2.value = '';
    
-   //снова получаем объект, который добавили
-   let expensesNumInput = cloneExpensesItem.querySelector('.expenses-amount');
-   // навешиваем обработчик проверки на число
-   expensesNumInput.addEventListener('input', this.checkInputNum);
-
-   let expensesSymbolInput = cloneExpensesItem.querySelector('.expenses-title');
-   expensesSymbolInput.addEventListener('input', this.checkInputSymbol);
-
+   expensesVal2.addEventListener('input', this.checkInputNum);
+   expensesVal1.addEventListener('input', this.checkInputSymbol);
 
    expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
    expensesItems = document.querySelectorAll('.expenses-items');
@@ -125,14 +121,13 @@ let appData = {
 
   addIncomeBlock: function() {
    let cloneIncomeItem = incomeItems[0].cloneNode(true);
-   let incomeVal1 = cloneIncomeItem.querySelector('.income-title').value = '';
-   let incomeVal2 = cloneIncomeItem.querySelector('.income-amount').value = '';
+   let incomeVal3 = cloneIncomeItem.querySelector('.income-title');
+   let incomeVal4 = cloneIncomeItem.querySelector('.income-amount');
+   incomeVal3.value = '';
+   incomeVal4.value = '';
 
-   let incomeNumInput = cloneIncomeItem.querySelector('.income-amount');
-   incomeNumInput.addEventListener('input', this.checkInputNum);
-
-   let incomeSymbolInput = cloneIncomeItem.querySelector('.income-title');
-   incomeSymbolInput.addEventListener('input', this.checkInputSymbol);
+   incomeVal4.addEventListener('input', this.checkInputNum);
+   incomeVal3.addEventListener('input', this.checkInputSymbol);
 
    incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
    incomeItems = document.querySelectorAll('.income-items');
@@ -155,26 +150,23 @@ let appData = {
   },
 
   getExpenses: function() {
-   expensesItems.forEach(function(item) {
+   expensesItems.forEach((item)=> {
     let itemExpenses = item.querySelector('.expenses-title').value;
     let cashExpenses = item.querySelector('.expenses-amount').value;
     if (itemExpenses !== '' && cashExpenses !== '') {
-     appData.expenses[itemExpenses] = cashExpenses;
+     this.expenses[itemExpenses] = cashExpenses;
     }
    });
   },
 
-// есть проблема с расчетом!!!
   getIncome: function(){
-   incomeItems.forEach(function(item) {
+    let addAmount = 0;
+   incomeItems.forEach((item)=> {
     let itemIncome = item.querySelector('.income-title').value;
     let cashIncome = item.querySelector('.income-amount').value;
     if (itemIncome !== '' && cashIncome !== '') {
-     appData.income[itemIncome] = cashIncome;
-    }
-    for (let key in appData.income) {
-     appData.incomeMonth += +appData.income[key];
-     console.log('appData.incomeMonth : ', appData.incomeMonth );
+     this.income[itemIncome] = cashIncome;
+     this.incomeMonth += +cashIncome;
     }
    });
   },
@@ -197,27 +189,29 @@ let appData = {
 
 
   getAddExpenses: function(){
-   let addExpenses = additionalExpensesItem.value.split(',');
-   addExpenses.forEach(function(item){
-    item = item.trim();
-    if (item !== '') {
-     appData.addExpenses.push(item);
-    }
-   })
-  },
+    let addExpenses = additionalExpensesItem.value.split(',');
+    addExpenses.forEach((item)=>{
+     item = item.trim();
+     if (item !== '') {
+      this.addExpenses.push(item);
+     }
+    })
+   },
+
+
   getAddIncome: function() {
-   addIncomeItem.forEach(function(item) {
+   addIncomeItem.forEach((item)=> {
     let itemValue = item.value.trim();
     if (itemValue !== '') {
-     appData.addIncome.push(itemValue);
+     this.addIncome.push(itemValue);
     }
    })
 
   },
 
   getExpensesMonth: function() {
-    for (let key in appData.expenses) {
-      appData.expensesMonth += +appData.expenses[key];
+    for (let key in this.expenses) {
+      this.expensesMonth += +this.expenses[key];
     }
   },
 
@@ -257,7 +251,7 @@ let appData = {
       this.percentDeposit = prompt('Какой процент депозита?') }
       while (!isNumber(this.percentDeposit) || isNaN(this.percentDeposit) || this.percentDeposit === '' || this.percentDeposit === null);
       do {
-      appData.moneyDeposit = prompt('Какая сумма на балансе?') }
+      this.moneyDeposit = prompt('Какая сумма на балансе?') }
       while (!isNumber(this.moneyDeposit) || isNaN(this.moneyDeposit) || this.moneyDeposit === '' || this.moneyDeposit === null);
     }
   },
@@ -296,9 +290,7 @@ expensesAmount.addEventListener('input', appData.checkInputNum);
 addIncomeItem[0].addEventListener('input', appData.checkInputSymbol);
 addIncomeItem[1].addEventListener('input', appData.checkInputSymbol);
 
-
 inputIncomeTitle.addEventListener('input', appData.checkInputSymbol);
-
 inputExpensesTitle.addEventListener('input', appData.checkInputSymbol);
 
 function resetAll() {
