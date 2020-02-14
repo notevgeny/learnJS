@@ -8,6 +8,7 @@ function DOMElement(selector, height, width, bg, fontSize){
  this.fontSize = fontSize;
 }
 
+
 DOMElement.prototype.makeElement = function(str){
  let myElement;
  let myClass = this.selector.slice(1);
