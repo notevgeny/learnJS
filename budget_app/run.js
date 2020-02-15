@@ -270,31 +270,29 @@ resetAll() {
 
 class listenListeners extends AppData {
  eventsListeners() {
-  start.addEventListener('click', appData.start.bind(appData));
-  start.addEventListener('click', appData.disableInputs.bind(appData));
+  start.addEventListener('click', this.start.bind(this));
+  start.addEventListener('click', this.disableInputs.bind(this));
   
-  expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
-  incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
-  periodSelect.addEventListener('input', appData.changePeriodBlock.bind(appData));
-  salaryAmount.addEventListener('input', appData.enableBtn);
+  expensesPlus.addEventListener('click', this.addExpensesBlock.bind(this));
+  incomePlus.addEventListener('click', this.addIncomeBlock.bind(this));
+  periodSelect.addEventListener('input', this.changePeriodBlock.bind(this));
+  salaryAmount.addEventListener('input', this.enableBtn);
   
-  salaryAmount.addEventListener('input', appData.checkInputNum);
-  targetAmount.addEventListener('input', appData.checkInputNum);
-  incomeAmount.addEventListener('input', appData.checkInputNum);
-  expensesAmount.addEventListener('input', appData.checkInputNum);
+  salaryAmount.addEventListener('input', this.checkInputNum);
+  targetAmount.addEventListener('input', this.checkInputNum);
+  incomeAmount.addEventListener('input', this.checkInputNum);
+  expensesAmount.addEventListener('input', this.checkInputNum);
   
-  addIncomeItem[0].addEventListener('input', appData.checkInputSymbol);
-  addIncomeItem[1].addEventListener('input', appData.checkInputSymbol);
+  addIncomeItem[0].addEventListener('input', this.checkInputSymbol);
+  addIncomeItem[1].addEventListener('input', this.checkInputSymbol);
   
-  inputIncomeTitle.addEventListener('input', appData.checkInputSymbol);
-  inputExpensesTitle.addEventListener('input', appData.checkInputSymbol);
+  inputIncomeTitle.addEventListener('input', this.checkInputSymbol);
+  inputExpensesTitle.addEventListener('input', this.checkInputSymbol);
   
-  appData.getStatusIncome();
-  appData.getInfoDeposit();
+  this.getStatusIncome();
+  this.getInfoDeposit();
  };
 }
-
-
 
 
 const appData = new AppData();
