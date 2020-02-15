@@ -259,7 +259,7 @@ AppData.prototype.disableInputs = function() {
   getButton = document.getElementById('start');
   getButton.style.display = 'none';
   resetButton.style.display = 'block';
-  resetButton.addEventListener('click', resetAll);
+  resetButton.addEventListener('click', this.resetAll);
 
  };
 
@@ -269,7 +269,7 @@ AppData.prototype.disableInputs = function() {
 
 AppData.prototype.eventsListeners = function() {
  start.addEventListener('click', appData.start.bind(appData));
- start.addEventListener('click', appData.disableInputs);
+ start.addEventListener('click', appData.disableInputs.bind(appData));
  
  expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
  incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
@@ -301,9 +301,9 @@ AppData.prototype.eventsListeners = function() {
 const appData = new AppData();
 console.log(appData);
 
-//здесь косяк
+
 const eventsListeners = new AppData();
-eventsListeners();
+eventsListeners.eventsListeners();
 
 
 
