@@ -1,0 +1,20 @@
+.round{
+ position: absolute;
+ top: 20px;
+ left: 50px;
+ height: 100px;
+ width: 100px;
+ border-radius: 50%;
+ background-color: red
+}
+.start {
+ position: absolute;
+ top: 20px;
+ left: 250px;
+}
+
+.reset {
+ position: absolute;
+ top: 50px;
+ left: 250px;
+}
