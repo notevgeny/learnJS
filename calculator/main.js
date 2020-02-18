@@ -47,7 +47,8 @@ function countTimer(deadline) {
     timerHours.textContent = getZero(0),
     timerMinutes.textContent = getZero(0),
     timerSeconds.textContent = getZero(0);
-    let deadline = new Date(Date.parse(new Date()) + 1000*3600*24);
+    deadline = deadline.getTime() + 1000*3600*24;
+    console.log('deadline: ', deadline);
     countTimer(deadline);
     
   }
@@ -58,7 +59,7 @@ let timeinterval = setInterval(updateClock, 1000);
 
 }
 
-let deadline = new Date('18 february 2020 12:00');
+let deadline = new Date('18 february 2020');
 countTimer(deadline);
 
  });
