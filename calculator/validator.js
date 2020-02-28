@@ -89,10 +89,10 @@ class Validator {
   const style = document.createElement('style');
   style.textContent = `
   input.success {
-   border: 2px solid green
+   border: 2px solid green !important
   }
   input.error {
-   border: 2px solid red
+   border: 2px solid red !important
   }
   .validator-error {
    font-size: 12px;
@@ -113,7 +113,7 @@ class Validator {
   }
 
   if (!this.pattern.text) {
-    this.pattern.text = /^\W{2}/;
+    this.pattern.text = /^[А-ЯЁа-яё]*$/;
    }
 
 
