@@ -487,55 +487,9 @@ addDots();
       (target.querySelector('#'+target.id+'-message')) ? target.querySelector('#'+target.id+'-message').value = '': null;
       };
 
-
-// оригинал
-
-  //       postData(body, 
-  //         () => {
-  //           statusMessage.textContent = successMessage;
-  //           deleteInputs();
-  //         }, 
-  //         (error) => {
-  //           statusMessage.textContent = errorMessage;
-  //           console.error(error);
-  //           deleteInputs();
-  //         }
-  //     );
-  //   });
-
-  //   const postData = (body, outputData, errorData) => {
-  //     const request = new XMLHttpRequest();
-  //     request.addEventListener('readystatechange', () => {
-        
-
-  //       if (request.readyState !== 4) {
-  //         return;
-  //       }
-
-  //       if (request.status === 200) {
-  //         outputData();
-  //       } else {
-  //         errorData(request.status);
-  //       }
-  //     });
-
-  //     request.open('POST', './server.php');
-
-  //     request.setRequestHeader('Content-Type', 'application/json');
-      
-  //     request.send(JSON.stringify(body));
-  //   }
-  // };
-
-
-  // sendForm();
-
-
-  postData()
-
+  postData(body)
   .then(body => {
     statusMessage.textContent = successMessage;
-
     deleteInputs();
   })
   .catch(error => {
