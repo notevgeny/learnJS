@@ -74,6 +74,12 @@ const sendForm = () => {
    (target.querySelector('#'+target.id+'-message')) ? target.querySelector('#'+target.id+'-message').value = '': null;
    };
 
+   const removeMessage = () => {
+   setTimeout(() => {
+    statusMessage.remove();
+   }, 5000);
+  };
+
 postData(body)
 .then(response => {
  if (response.status !== 200) {
@@ -81,11 +87,13 @@ postData(body)
  }
  statusMessage.textContent = successMessage;
  deleteInputs();
+ removeMessage();
 })
 .catch(error => {
  statusMessage.textContent = errorMessage;
  console.error(error);
  deleteInputs();
+ removeMessage();
 });
 });
 const postData = (body) => {
