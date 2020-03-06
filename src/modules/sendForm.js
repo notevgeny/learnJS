@@ -86,11 +86,13 @@ postData(body)
    throw new Error('Status network was not 200');
  }
  statusMessage.textContent = successMessage;
+ statusMessage.style.cssText = 'color: green';
  deleteInputs();
  removeMessage();
 })
 .catch(error => {
  statusMessage.textContent = errorMessage;
+ statusMessage.style.cssText = 'color: red';
  console.error(error);
  deleteInputs();
  removeMessage();
