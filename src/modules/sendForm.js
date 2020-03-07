@@ -59,6 +59,7 @@ const sendForm = () => {
 
    target.appendChild(statusMessage);
    statusMessage.textContent = loadMessage;
+   statusMessage.style.cssText = 'color: #19b5fe';
    const formData = new FormData(target);
    let body = {};
 
@@ -86,7 +87,7 @@ postData(body)
    throw new Error('Status network was not 200');
  }
  statusMessage.textContent = successMessage;
- statusMessage.style.cssText = 'color: green';
+ statusMessage.style.cssText = 'color: #00FF00';
  deleteInputs();
  removeMessage();
 })
